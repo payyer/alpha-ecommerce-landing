@@ -1,96 +1,306 @@
+/* ============================================================================
+   GOOGLE FONTS IMPORT
+   ============================================================================
+   Import các font chữ từ Google Fonts
+   Đảm bảo các font này match với fontFamily trong tailwind.config.js
+   ============================================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap');
+
+/* ============================================================================
+   TAILWIND DIRECTIVES
+   ============================================================================
+   Import các layer của Tailwind CSS theo thứ tự:
+   1. @tailwind base - CSS reset + default styles
+   2. @tailwind components - Component classes (buttons, cards, etc.)
+   3. @tailwind utilities - Utility classes (flex, p-4, text-center, etc.)
+   ============================================================================ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================================
+   CSS VARIABLES (TÙY CHỌN)
+   ============================================================================
+   Định nghĩa CSS variables cho các giá trị dùng nhiều lần
+   Có thể access qua var(--variable-name) trong CSS
+   ============================================================================ */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  /* Font rendering optimization */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Custom CSS variables - Tùy chọn */
+  /* --header-height: 80px; */
+  /* --container-max-width: 1200px; */
+  /* --transition-speed: 0.3s; */
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* ============================================================================
+   @layer base
+   ============================================================================
+   Base styles - CSS reset và styles cơ bản cho HTML elements
+   Sử dụng @apply để áp dụng Tailwind utilities
+   
+   Best Practice:
+   - Chỉ style các HTML tags cơ bản (html, body, h1-h6, p, a, etc.)
+   - Không style components hoặc custom classes ở đây
+   ============================================================================ */
+@layer base {
+  /* Base HTML font size - dùng cho rem calculations */
+  html {
+    font-size: 16px;
+    @apply scroll-smooth; /* Smooth scrolling cho anchor links */
   }
-  a:hover {
-    color: #747bff;
+
+  /* Body default styles */
+  body {
+    @apply m-0 min-h-screen bg-white font-sans text-black antialiased;
   }
-  button {
-    background-color: #f9f9f9;
+
+  /* Headings - Có thể uncomment và customize */
+  /* h1 {
+    @apply text-4xl font-bold text-night;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold text-night;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold text-night;
+  } */
+
+  /* Links - Có thể uncomment và customize */
+  /* a {
+    @apply text-primary transition-colors hover:text-secondary;
+  } */
+
+  /* Images - Responsive by default */
+  /* img {
+    @apply max-w-full h-auto;
+  } */
+}
+
+/* ============================================================================
+   @layer components
+   ============================================================================
+   Component classes - Reusable component styles
+   
+   Best Practice:
+   - Tạo các class cho components dùng nhiều lần (buttons, cards, inputs)
+   - Sử dụng @apply để compose Tailwind utilities
+   - Đặt tên class rõ ràng, có ngữ nghĩa
+   
+   Naming Convention:
+   - .btn-{variant} cho buttons
+   - .card-{variant} cho cards
+   - .input-{variant} cho inputs
+   ============================================================================ */
+@layer components {
+  /* ----------------------------------------
+     BUTTONS
+     ---------------------------------------- */
+  
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 
+           font-semibold text-white transition-all duration-300 
+           hover:bg-secondary hover:shadow-lg 
+           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border-2 border-primary 
+           bg-transparent px-6 py-3 font-semibold text-primary transition-all duration-300 
+           hover:bg-primary hover:text-white hover:shadow-lg 
+           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-lg border-2 border-mist 
+           bg-transparent px-6 py-3 font-semibold text-night transition-all duration-300 
+           hover:border-primary hover:text-primary 
+           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  /* ----------------------------------------
+     CARDS
+     ---------------------------------------- */
+  
+  /* Basic card */
+  .card {
+    @apply rounded-lg bg-white p-6 shadow-md transition-shadow duration-300 
+           hover:shadow-xl;
+  }
+
+  /* Card with border */
+  .card-bordered {
+    @apply rounded-lg border-2 border-mist bg-white p-6 transition-all duration-300 
+           hover:border-primary hover:shadow-lg;
+  }
+
+  /* ----------------------------------------
+     FORM INPUTS
+     ---------------------------------------- */
+  
+  /* Text input */
+  .input {
+    @apply w-full rounded-lg border-2 border-mist bg-white px-4 py-3 
+           text-night transition-colors duration-200 
+           placeholder:text-gray-400 
+           hover:border-gray-300 
+           focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-0
+           disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500;
+  }
+
+  /* Textarea */
+  .textarea {
+    @apply input min-h-[120px] resize-y;
+  }
+
+  /* ----------------------------------------
+     CONTAINERS
+     ---------------------------------------- */
+  
+  /* Container with max-width */
+  .container-custom {
+    @apply mx-auto w-full max-w-7xl px-4 mobile:px-6 tablet:px-8;
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-16 mobile:py-8 tablet:py-12;
+  }
+
+  /* ----------------------------------------
+     TYPOGRAPHY
+     ---------------------------------------- */
+  
+  /* Page heading */
+  .heading-1 {
+    @apply text-5xl font-bold text-night mobile:text-3xl tablet:text-4xl;
+  }
+
+  .heading-2 {
+    @apply text-4xl font-bold text-night mobile:text-2xl tablet:text-3xl;
+  }
+
+  .heading-3 {
+    @apply text-3xl font-semibold text-night mobile:text-xl tablet:text-2xl;
+  }
+
+  /* Body text */
+  .text-body {
+    @apply text-base leading-relaxed text-gray-700;
+  }
+
+  .text-muted {
+    @apply text-sm text-gray-500;
   }
 }
+
+/* ============================================================================
+   @layer utilities
+   ============================================================================
+   Custom utility classes - Single-purpose helper classes
+   
+   Best Practice:
+   - Tạo utilities cho các pattern dùng nhiều lần nhưng không có sẵn trong Tailwind
+   - Đặt tên theo convention của Tailwind
+   ============================================================================ */
+@layer utilities {
+  /* ----------------------------------------
+     ANIMATIONS
+     ---------------------------------------- */
+  
+  /* Fade in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Slide up animation */
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* ----------------------------------------
+     CUSTOM UTILITIES
+     ---------------------------------------- */
+  
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md;
+  }
+
+  /* Custom scrollbar - Webkit browsers only */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.primary') theme('colors.mist');
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-mist;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-primary hover:bg-secondary;
+  }
+
+  /* Aspect ratios - nếu không dùng plugin */
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* ============================================================================
+   CUSTOM CSS (không dùng @layer)
+   ============================================================================
+   CSS thuần không cần optimize bởi Tailwind
+   Đặt ở cuối file để override nếu cần
+   ============================================================================ */
+
+/* Ví dụ: Styles cho third-party libraries */
+/* .swiper-pagination-bullet-active {
+  background-color: theme('colors.primary');
+} */
+

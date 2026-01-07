@@ -1,24 +1,13 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
+const app = document.querySelector('#app')
+
+app.innerHTML = `
+  <main class="flex min-h-screen items-center justify-center bg-white">
+    <div class="space-y-4 text-center">
+      <p class="text-sm uppercase tracking-[0.3em] text-primary">Alpha Landing</p>
+      <h1 class="text-3xl font-semibold text-black md:text-4xl">Boilerplate sẵn sàng dựng landing</h1>
+      <p class="text-base text-black/70">Đã setup Tailwind, màu thương hiệu, font Google. Thêm section tuỳ ý.</p>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
+  </main>
 `
-
-setupCounter(document.querySelector('#counter'))
