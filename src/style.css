@@ -4,7 +4,165 @@
    Import các font chữ từ Google Fonts
    Đảm bảo các font này match với fontFamily trong tailwind.config.js
    ============================================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Trirong:wght@400;700&display=swap");
+
+/* ============================================================================
+   LOCAL FONTS - SOFIA PRO
+   ============================================================================
+   Import local font files từ assets/fonts
+   ============================================================================ */
+
+/* Sofia Pro UltraLight - 200 */
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro UltraLight Az.otf")
+    format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro UltraLight Italic Az.otf")
+    format("opentype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Sofia Pro ExtraLight - 300 */
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro ExtraLight Az.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro ExtraLight Italic Az.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Sofia Pro Light - 400 */
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro Light Az.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro Light Italic Az.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Sofia Pro Regular - 500 */
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro Regular Az.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro Regular Italic Az.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Sofia Pro Medium - 600 */
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro Medium Az.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro Medium Italic Az.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Sofia Pro Semi Bold - 700 */
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro Semi Bold Az.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro Semi Bold Italic Az.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Sofia Pro Bold - 800 */
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro Bold Az.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro Bold Italic Az.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Sofia Pro Black - 900 */
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro Black Az.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/src/assets/fonts/SofiaPro/Sofia Pro Black Italic Az.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
 
 /* ============================================================================
    TAILWIND DIRECTIVES
@@ -102,7 +260,7 @@
   /* ----------------------------------------
      BUTTONS
      ---------------------------------------- */
-  
+
   /* Primary button */
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 
@@ -132,7 +290,7 @@
   /* ----------------------------------------
      CARDS
      ---------------------------------------- */
-  
+
   /* Basic card */
   .card {
     @apply rounded-lg bg-white p-6 shadow-md transition-shadow duration-300 
@@ -148,7 +306,7 @@
   /* ----------------------------------------
      FORM INPUTS
      ---------------------------------------- */
-  
+
   /* Text input */
   .input {
     @apply w-full rounded-lg border-2 border-mist bg-white px-4 py-3 
@@ -167,7 +325,13 @@
   /* ----------------------------------------
      CONTAINERS
      ---------------------------------------- */
-  
+
+  /* Container với max-width 1340px và padding ngang 1.5rem (24px) */
+  .container {
+    @apply mx-auto w-full px-[15px] tablet:px-[50px] tablet-sm:px-[15px];
+    max-width: 1340px;
+  }
+
   /* Container with max-width */
   .container-custom {
     @apply mx-auto w-full max-w-7xl px-4 mobile:px-6 tablet:px-8;
@@ -181,7 +345,7 @@
   /* ----------------------------------------
      TYPOGRAPHY
      ---------------------------------------- */
-  
+
   /* Page heading */
   .heading-1 {
     @apply text-5xl font-bold text-night mobile:text-3xl tablet:text-4xl;
@@ -203,6 +367,117 @@
   .text-muted {
     @apply text-sm text-gray-500;
   }
+
+  /* ----------------------------------------
+     IMAGES
+     ---------------------------------------- */
+
+  /* Image cover với aspect-ratio 1:1, rounded corners */
+  .img-cover {
+    @apply aspect-square overflow-hidden rounded-lg object-cover;
+  }
+
+  /* Variant với border-radius khác */
+  .img-cover-sm {
+    @apply aspect-square overflow-hidden rounded object-cover;
+  }
+
+  .img-cover-md {
+    @apply aspect-square overflow-hidden rounded-lg object-cover;
+  }
+
+  .img-cover-lg {
+    @apply aspect-square overflow-hidden rounded-2xl object-cover;
+  }
+
+  /* ----------------------------------------
+     Arrcordion
+     ---------------------------------------- */
+  /* Accordion component styles */
+  .accordion {
+    @apply w-full;
+  }
+
+  .accordion__item {
+    @apply bg-white rounded-lg border;
+  }
+
+  .accordion__button {
+    @apply w-full text-left flex items-center justify-between  bg-white rounded-lg border-0;
+  }
+
+  .accordion__icon {
+    @apply transition-transform duration-300 transform;
+  }
+
+  .accordion__item.is-open .accordion__icon {
+    @apply rotate-45;
+  }
+
+  .accordion__panel {
+    @apply transition-[height] duration-300 ease-in-out;
+    height: 0;
+  }
+
+
+  /* Trirong for small headings if class used */
+  .font-trirong {
+    font-family: 'Trirong', serif;
+  }
+
+  /* ----------------------------------------
+     PRESS LOGOS MARQUEE (CAROUSEL)
+     JS sets CSS vars: --marquee-distance, --marquee-duration
+     ---------------------------------------- */
+  .carousel {
+    @apply w-full overflow-hidden;
+    position: relative;
+  }
+
+  .carousel__track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    will-change: transform;
+    animation: marquee var(--marquee-duration, 40s) linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel__track {
+      animation: none;
+      transform: none;
+    }
+  }
+
+  .carousel:hover .carousel__track {
+    animation-play-state: paused;
+  }
+
+  .press_logo {
+    height: 20px;
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex: 0 0 auto;
+    display: block;
+  }
+
+  @media (min-width: 900px) {
+    .press_logo {
+      height: 30px;
+      margin: 0 50px;
+    }
+  }
+
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * var(--marquee-distance, 0px)));
+  }
 }
 
 /* ============================================================================
@@ -218,7 +493,7 @@
   /* ----------------------------------------
      ANIMATIONS
      ---------------------------------------- */
-  
+
   /* Fade in animation */
   .animate-fade-in {
     animation: fadeIn 0.5s ease-in;
@@ -252,7 +527,7 @@
   /* ----------------------------------------
      CUSTOM UTILITIES
      ---------------------------------------- */
-  
+
   /* Text gradient */
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
@@ -266,7 +541,7 @@
   /* Custom scrollbar - Webkit browsers only */
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: theme('colors.primary') theme('colors.mist');
+    scrollbar-color: theme("colors.primary") theme("colors.mist");
   }
 
   .scrollbar-thin::-webkit-scrollbar {
@@ -298,9 +573,3 @@
    CSS thuần không cần optimize bởi Tailwind
    Đặt ở cuối file để override nếu cần
    ============================================================================ */
-
-/* Ví dụ: Styles cho third-party libraries */
-/* .swiper-pagination-bullet-active {
-  background-color: theme('colors.primary');
-} */
-
