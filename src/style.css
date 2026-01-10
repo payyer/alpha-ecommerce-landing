@@ -288,6 +288,29 @@
   }
 
   /* ----------------------------------------
+     SITE CTA (Reusable Component)
+     ----------------------------------------
+     Usage: wrap CTA anchor + guarantee in a container with class `site-cta`.
+  */
+  .site-cta {
+    @apply w-full mx-auto text-center hover:opacity-70;
+    max-width: 460px;
+  }
+
+  .site-cta__button {
+    @apply block p-4 rounded-[4px] text-white font-bold leading-[20.8px] bg-black text-center mx-auto;
+    @apply tablet:mb-0 tablet:text-[18px];
+  }
+
+  .site-cta__guarantee {
+    @apply mt-4 flex items-start justify-center gap-4 font-bold text-center;
+  }
+
+  .site-cta__guarantee img {
+    @apply w-[24px] h-auto inline-block;
+  }
+
+  /* ----------------------------------------
      CARDS
      ---------------------------------------- */
 
@@ -568,6 +591,10 @@
 
   p {
     @apply my-2
+  }
+
+  h2 {
+    @apply my-4 font-lora text-[24px] leading-[31.2px] text-center tablet:text-[32px] tablet:leading-[41.6px] tablet:mx-auto tablet:max-w-[800px]
   }
 }
 
