@@ -442,6 +442,67 @@
     height: 0;
   }
 
+  /* Accordion component variants extracted from markup */
+  .accordion-card {
+    @apply p-4 border-b border-black rounded-none tablet:p-6;
+  }
+
+  .accordion__title {
+    @apply flex items-center justify-center gap-2 leading-[28.8px] text-primary my-0;
+  }
+
+  .accordion__media-row {
+    @apply flex items-center gap-2;
+    /* change on tablet */
+  }
+
+  @screen tablet {
+    .accordion__media-row {
+      @apply flex-col justify-between;
+    }
+  }
+
+  .accordion__media {
+    @apply max-w-[119px] w-full tablet:max-w-none;
+    img {
+      @apply w-full h-auto  tablet:h-[80px] tablet:w-auto;
+    }
+  }
+
+  @screen tablet {
+    .accordion__media {
+      @apply max-w-fit;
+    }
+  }
+
+  .accordion__img {
+    @apply w-auto h-[80px];
+  }
+
+  @screen tablet {
+    .accordion__img {
+      @apply max-w-[116px] w-full h-auto;
+    }
+  }
+
+  .accordion__label {
+    @apply font-semibold leading-[18.2px] flex justify-between items-center text-[14px] w-full font-trirong;
+  }
+
+  @screen tablet {
+    .accordion__label {
+      @apply text-[16px] leading-[28.8px];
+    }
+  }
+
+  .accordion__arrow {
+    @apply w-[24px];
+  }
+
+  .accordion__panel-text {
+    @apply text-[14px] my-0;
+  }
+
 
   /* Trirong for small headings if class used */
   .font-trirong {
