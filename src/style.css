@@ -265,8 +265,6 @@
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 
            font-semibold text-white transition-all duration-300 
-           hover:bg-secondary hover:shadow-lg 
-           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
            disabled:cursor-not-allowed disabled:opacity-50;
   }
 
@@ -274,8 +272,6 @@
   .btn-secondary {
     @apply inline-flex items-center justify-center rounded-lg border-2 border-primary 
            bg-transparent px-6 py-3 font-semibold text-primary transition-all duration-300 
-           hover:bg-primary hover:text-white hover:shadow-lg 
-           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
            disabled:cursor-not-allowed disabled:opacity-50;
   }
 
@@ -283,10 +279,10 @@
   .btn-outline {
     @apply inline-flex items-center justify-center rounded-lg border-2 border-mist 
            bg-transparent px-6 py-3 font-semibold text-night transition-all duration-300 
-           hover:border-primary hover:text-primary 
-           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
   }
-
+  button {
+    @apply hover:opacity-70
+  }
   /* ----------------------------------------
      SITE CTA (Reusable Component)
      ----------------------------------------
@@ -343,6 +339,39 @@
   /* Textarea */
   .textarea {
     @apply input min-h-[120px] resize-y;
+  }
+
+  /* ----------------------------------------
+     REVIEW FORM (No focus ring)
+     ---------------------------------------- */
+  .review-input {
+    @apply w-full h-9 px-4 bg-white border border-solid border-input;
+    @apply text-night placeholder:text-gray-400;
+    @apply outline-none focus:outline-none focus:ring-0 focus:border-[#FA8A8A];
+  }
+
+  .review-textarea {
+    @apply w-full px-4 py-2 h-[112px] bg-white border border-solid border-input;
+    @apply outline-none focus:outline-none focus:ring-0 focus:border-[#FA8A8A];
+    @apply resize-none;
+  }
+
+  .review-display-trigger {
+    @apply inline-flex items-center gap-1 text-[#FA8A8A];
+    @apply border border-solid border-[#cfcfcf] bg-white px-2 py-1 leading-none;
+  }
+
+  .review-display-menu {
+    @apply absolute z-20 mt-1 bg-white border border-solid border-[#cfcfcf];
+    @apply w-[160px];
+  }
+
+  .review-display-item {
+    @apply px-2 py-1 text-[#FA8A8A] text-[12px] leading-[1.4] cursor-pointer;
+  }
+
+  .review-display-item.is-active {
+    @apply bg-[#212121] text-white;
   }
 
   /* ----------------------------------------
@@ -507,6 +536,10 @@
   /* Trirong for small headings if class used */
   .font-trirong {
     font-family: 'Trirong', serif;
+  }
+
+  .fa-star, .fa-star-half {
+    @apply text-[#FA8A8A] text-[15px] font-bold pr-1
   }
 
   /* ----------------------------------------
