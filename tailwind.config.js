@@ -77,6 +77,9 @@ export default {
         // Màu nhấn mạnh (accent)
         accent: "#7c3aed",
 
+        "light" : "#000000bf",
+
+        input: "#e4e4e4",
         // Best Practice: Có thể mở rộng thành palette với shades
         // primary: {
         //   50: '#f0fdf4',
