@@ -289,8 +289,8 @@
      Usage: wrap CTA anchor + guarantee in a container with class `site-cta`.
   */
   .site-cta {
-    @apply w-full mx-auto text-center hover:opacity-70;
-    max-width: 460px;
+    @apply w-full mx-auto text-center hover:opacity-70 tablet:max-w-[460px];
+    
   }
 
   .site-cta__button {
