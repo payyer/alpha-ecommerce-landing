@@ -3,6 +3,11 @@
 > Pixel-perfect clone of the Sculptique™ product page for interview submission  
 > Reference: [https://trysculptique.com/products/lymph-cc-select](https://trysculptique.com/products/lymph-cc-select)
 
+## 🚢 Deployment
+
+- **Live demo:** https://le-quoc-anh-alpha-ecommerce-landing.vercel.app/
+
+
 ## 🎯 Project Overview
 
 This is a front-end clone of the Sculptique™ Lymphatic Drainage Capsules product page, built as part of a Round 2 interview assessment for **Pati Creative Agency**.
@@ -123,3 +128,5 @@ alpha-ecommerce-landing/
 - [Tailwind CSS Docs](https://tailwindcss.com/docs)
 - [Vite Docs](https://vitejs.dev/)
 - [TAILWIND_GUIDE.md](./TAILWIND_GUIDE.md) - Guide chi tiết của dự án này
+
+
