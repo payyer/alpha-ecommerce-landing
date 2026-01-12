@@ -1,13 +1,43 @@
-import './style.css'
+/**
+ * ============================================================================
+ * MAIN.JS - Application Entry Point
+ * ============================================================================
+ * 
+ * This is the main entry file for the Sculptique™ landing page.
+ * It imports all necessary styles and JavaScript modules.
+ * 
+ * Project: Sculptique™ E-commerce Landing Page
+ * Reference: https://trysculptique.com/products/lymph-cc-select
+ * 
+ * Tech Stack:
+ * - Vite (Build tool)
+ * - Tailwind CSS (Styling)
+ * - Swiper.js (Carousels/Sliders)
+ * - Vanilla JavaScript (Interactions)
+ * 
+ * ============================================================================
+ */
 
-const app = document.querySelector('#app')
+// Core Styles (Tailwind + Custom CSS)
+import "./style.css";
 
-app.innerHTML = `
-  <main class="flex min-h-screen items-center justify-center bg-white">
-    <div class="space-y-4 text-center">
-      <p class="text-sm uppercase tracking-[0.3em] text-primary">Alpha Landing</p>
-      <h1 class="text-3xl font-semibold text-black md:text-4xl">Boilerplate sẵn sàng dựng landing</h1>
-      <p class="text-base text-black/70">Đã setup Tailwind, màu thương hiệu, font Google. Thêm section tuỳ ý.</p>
-    </div>
-  </main>
-`
+// UI Components - Modals
+import "./modal.js";
+
+// Product Options - Quantity selector and variant picker
+import "./options.js";
+
+// Hero Section - Product image gallery with thumbnails
+import { swiperHero, swiperHeroThumbs } from "./swiperHero.js";
+
+// Accordion Component - FAQ and collapsible sections
+import "./accordion.js";
+
+// Press Logos Marquee - Infinite scrolling carousel
+import './carousel.js';
+
+// Review Form - Write a review form validation
+import './reviewForm.js';
+
+// Video Stories Swiper - Customer video testimonials
+import './swiperVideo.js';

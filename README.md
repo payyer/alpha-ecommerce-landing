@@ -1,114 +1,122 @@
-# 🛍️ Alpha E-commerce Landing Page
+# 🛍️ Sculptique™ Landing Page Clone
 
-> Landing page cho nền tảng e-commerce sử dụng Tailwind CSS + Vite
+> Pixel-perfect clone of the Sculptique™ product page for interview submission  
+> Reference: [https://trysculptique.com/products/lymph-cc-select](https://trysculptique.com/products/lymph-cc-select)
+
+## 🎯 Project Overview
+
+This is a front-end clone of the Sculptique™ Lymphatic Drainage Capsules product page, built as part of a Round 2 interview assessment for **Pati Creative Agency**.
+
+### Requirements Met:
+- ✅ **Pixel-accurate layout** - Spacing, typography, colors, and fonts match reference
+- ✅ **Responsive design** - Desktop, tablet, and mobile breakpoints
+- ✅ **UI interactions** - Hover states, sliders, popups, accordions
+- ✅ **Clean code** - Well-structured, readable, and documented
 
 ## 🚀 Quick Start
 
 ```bash
-# Cài đặt dependencies
+# Install dependencies
 npm install
 
-# Chạy development server
+# Run development server
 npm run dev
 
-# Build cho production
+# Build for production
 npm run build
 
 # Preview production build
 npm run preview
 ```
 
-## 📂 Cấu Trúc Dự Án
+## 📂 Project Structure
 
 ```
 alpha-ecommerce-landing/
 ├── src/
-│   ├── style.css              # ⭐ CSS với @layer structure
-│   ├── main.js                # JavaScript entry point
-│   └── counter.js             # Example component
-├── public/                    # Static assets
-├── index.html                 # ⭐ HTML với examples
-├── tailwind.config.js         # ⭐ Tailwind configuration
+│   ├── style.css              # Tailwind + Custom CSS with @layer structure
+│   ├── main.js                # Application entry point
+│   ├── swiperHero.js          # Product image gallery
+│   ├── swiperVideo.js         # Video testimonials carousel
+│   ├── accordion.js           # FAQ accordion component
+│   ├── modal.js               # Modals (Nutritional Info, Clinicians Choice)
+│   ├── carousel.js            # Press logos marquee
+│   ├── options.js             # Purchase options selector
+│   ├── reviewDisplayName.js   # Review display name dropdown
+│   └── assets/
+│       └── fonts/             # Local fonts (Sofia Pro)
+├── public/
+│   └── assets/images/         # Static images
+├── index.html                 # Main HTML file
+├── tailwind.config.js         # Tailwind configuration
 ├── postcss.config.js          # PostCSS config
-├── TAILWIND_GUIDE.md          # 📖 Hướng dẫn chi tiết
 └── package.json               # Dependencies
 ```
 
-## 📖 Documentation
-
-Xem file [TAILWIND_GUIDE.md](./TAILWIND_GUIDE.md) để có hướng dẫn chi tiết về:
-
-- ✅ Best practices sử dụng Tailwind CSS
-- ✅ Cấu trúc code rõ ràng, dễ mở rộng
-- ✅ Custom components và utilities
-- ✅ Responsive design patterns
-- ✅ Performance optimization tips
-- ✅ Ví dụ code thực tế
-
 ## 🎨 Design System
 
-### Colors
+### Typography
 
-- **primary**: `#039869` - Màu chính
-- **secondary**: `#0c7c00` - Màu phụ
-- **night**: `#0f172a` - Màu tối
-- **mist**: `#e2e8f0` - Màu sáng
-- **accent**: `#7c3aed` - Màu nhấn
-
-### Fonts
-
-- **Nunito** - Default sans-serif
-- **Lora** - Serif font
-- **Montserrat** - Alternative sans
-- **Open Sans** - Alternative sans
+| Font | Usage |
+|------|-------|
+| **Sofia Pro** | Primary headings |
+| **Lora** | Serif headings, quotes |
+| **Nunito** | Body text |
+| **Montserrat** | Alternative sans |
+| **Open Sans** | Alternative body |
 
 ### Breakpoints
 
-- **mobile**: `max-width: 678px`
-- **tablet**: `679px - 991px`
-- **pc**: `min-width: 992px`
+| Name | Range | Usage |
+|------|-------|-------|
+| **Mobile** | `≤678px` | Phone screens |
+| **Tablet** | `≥679px` | Tablets and up |
 
-## 📱 Responsive Usage
+## 📱 Page Sections
 
-```html
-<!-- Mobile-first approach -->
-<div class="text-sm tablet:text-base pc:text-lg">Responsive text</div>
+1. **Header** - Logo and navigation
+2. **Hero Product Gallery** - Main product images with thumbnail navigation
+3. **Product Info** - Title, price, options, CTA
+4. **As Seen In** - Press logos marquee carousel
+5. **Why Your Symptoms Are Connected** - Symptom explanation section
+6. **Hidden Drainage System** - Lymphatic system education
+7. **Why Nothing Worked** - Problem/solution comparison
+8. **8-Ingredient System** - Ingredients breakdown with accordions
+9. **Customer Reviews** - Testimonials with write review form
+10. **Video Stories** - Customer video testimonials swiper
+11. **FAQs** - 10 frequently asked questions with accordions
+12. **Mission Section** - Brand story and values
+13. **Final CTA** - Purchase call-to-action
 
-<!-- Grid responsive -->
-<div class="grid grid-cols-1 tablet:grid-cols-2 pc:grid-cols-4 gap-6">
-  <!-- Items -->
-</div>
+## ✨ Technical Features
 
-<!-- Show/Hide -->
-<div class="hidden pc:block">Desktop only</div>
-<div class="block mobile:hidden">Hide on mobile</div>
-```
+### Interactions
+- **Swiper.js** - Product gallery and video carousel
+- **Accordions** - Smooth height transitions, ARIA accessible
+- **Modals** - Fade/scale animations, backdrop click to close
+- **Marquee** - Infinite scroll press logos
 
-## ✨ Features
+### Responsive
+- Mobile-first approach
+- Custom breakpoints matching design
+- Flexible grid layouts
+- Responsive typography
 
-- ✅ **Tailwind CSS v3.4** - Utility-first CSS framework
-- ✅ **Vite** - Lightning fast build tool
-- ✅ **Custom Design System** - Predefined colors, fonts, breakpoints
-- ✅ **Responsive Design** - Mobile-first approach
-- ✅ **Performance Optimized** - PurgeCSS, minification
-- ✅ **Well Documented** - Comments và guide chi tiết
+### Performance
+- Lazy loading images
+- Optimized font loading (`font-display: swap`)
+- Tailwind PurgeCSS in production
+- Minimal JavaScript footprint
 
-## 🎯 Best Practices Đã Apply
+## 🛠️ Tech Stack
 
-1. **@layer structure** - Tổ chức CSS theo base, components, utilities
-2. **Naming conventions** - Đặt tên rõ ràng, có quy chuẩn
-3. **Mobile-first** - Responsive design approach
-4. **Performance** - PurgeCSS để optimize bundle size
-5. **Accessibility** - Focus states, semantic HTML
-6. **Comments** - Comment rõ ràng cho maintainability
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| **Vite** | 7.2.4 | Build tool |
+| **Tailwind CSS** | 3.4.14 | Styling |
+| **Swiper** | 12.0.3 | Carousels |
+| **PostCSS** | 8.5.3 | CSS processing |
 
-## 🔧 Development Tips
-
-1. **Check [TAILWIND_GUIDE.md](./TAILWIND_GUIDE.md)** trước khi code
-2. **Sử dụng colors từ config** thay vì arbitrary values
-3. **Tạo component class** khi dùng lại ≥ 3 lần
-4. **Test responsive** trên mobile/tablet/desktop
-5. **Run `npm run build`** để check production bundle
 
 ## 📚 Resources
 
