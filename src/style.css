@@ -281,7 +281,7 @@
            bg-transparent px-6 py-3 font-semibold text-night transition-all duration-300 
   }
   button {
-    @apply hover:opacity-70
+    @apply hover:opacity-70 transition-opacity
   }
   /* ----------------------------------------
      SITE CTA (Reusable Component)

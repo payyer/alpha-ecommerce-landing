@@ -1241,20 +1241,22 @@
       <!-- Flex content -->
       <div class="flex flex-col px-4 py-6 tablet:flex-row">
         <div
-          class="font-montserrat text-[15px] tablet:border-r tablet:border-[#fa8a8a1a] leading-[21px] flex items-center justify-center tablet:flex-col tablet:w-[30%]">
-          <div class="flex items-center">
-            <i class="fa-solid fa-star text-[16px]"></i>
-            <i class="fa-solid fa-star text-[16px]"></i>
-            <i class="fa-solid fa-star text-[16px]"></i>
-            <i class="fa-solid fa-star text-[16px]"></i>
-            <i class="fa-solid fa-star-half text-[16px]"></i>
-            <span class="text-[#000000bf] hidden tablet:block  tablet:text-[16px]">
-              4.67 out of 5
+          class="font-montserrat flex-col text-[15px] tablet:border-r tablet:border-[#fa8a8a1a] leading-[21px] flex items-center justify-center tablet:flex-col tablet:w-[30%]">
+          <div class="flex">
+            <div class="flex items-center">
+                <i class="fa-solid fa-star text-[16px]"></i>
+                <i class="fa-solid fa-star text-[16px]"></i>
+                <i class="fa-solid fa-star text-[16px]"></i>
+                <i class="fa-solid fa-star text-[16px]"></i>
+                <i class="fa-solid fa-star-half text-[16px]"></i>
+                <span class="text-[#000000bf] hidden tablet:block  tablet:text-[16px]">
+                  4.67 out of 5
+                </span>
+            </div>
+            <span class="text-[#000000bf] tablet:hidden">
+                4.67 out of 5
             </span>
           </div>
-          <span class="text-[#000000bf] tablet:hidden">
-            4.67 out of 5
-          </span>
           <p class="pt-0 flex gap-2 items-center justify-center text-[#000000bf] tablet:text-[16px]">Based on 110 reviews
             <img src="https://judgeme-public-images.imgix.net/judgeme/logos/verified-checkmark.svg" loading="lazy"
               class="w-[17px] h-[17px]" alt=""></p>
@@ -1354,8 +1356,8 @@
           </div>
         </div>
         <div class="tablet:w-[30%] tablet:flex tablet:items-center tablet:justify-center ">
-          <a href=""
-            class="text-[#FA8A8A] underline text-[12px] font-montserrat mt-4 mb-[10px] text-center tablet:hidden">See all
+          <a href="#reviews"
+            class="text-[#FA8A8A] block  mx-auto underline text-[12px] font-montserrat mt-4 mb-[10px] text-center tablet:hidden">See all
             reviews</a>
           <div class="accordion__item !border-none font-montserrat">
             <button id="js-review-accordion-toggle" type="button"
@@ -1533,7 +1535,7 @@
           class="w-[80px] h-auto block mx-auto" loading="lazy" alt="">
         <span class="block text-center text-[12px] text-[#4c8eda] font-bold">100.0</span>
       </div>
-      <div>
+      <div id="reviews">
         <div class=" border-t border-[#fa8a8a1a]">
           <select class="jdgm-sort-dropdown text-[#FA8A8A] text-[14px] py-[10px] pr-[20px] pl-0" aria-label="Sort dropdown">
             <option value="most-recent text-[#FA8A8A] text-[14px]">Most Recent</option>
