@@ -5,3 +5,4 @@ import { swiperHero, swiperHeroThumbs } from "./swiperHero.js";
 import "./accordion.js";
 import './carousel.js';
 import './reviewDisplayName.js';
+import './swiperVideo.js';

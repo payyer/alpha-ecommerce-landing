@@ -693,6 +693,33 @@
 }
 
 /* ============================================================================
+   VIDEO SWIPER STYLES
+   ============================================================================ */
+.video-swiper-pagination {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  height: 4px;
+}
+
+.video-swiper-pagination .swiper-pagination-bullet {
+  flex: 1;
+  height: 100%;
+  margin: 0 !important;
+  opacity: 1;
+  background: #00000026;
+  border-radius: 0;
+  /* transition: flex 200ms ease, background-color 200ms ease; */
+}
+
+.video-swiper-pagination .swiper-pagination-bullet-active {
+  background: #039869;
+  /* flex: 3; */
+}
+
+
+/* ============================================================================
    CUSTOM CSS (không dùng @layer)
    ============================================================================
    CSS thuần không cần optimize bởi Tailwind
