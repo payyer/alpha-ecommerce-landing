@@ -289,12 +289,12 @@
      Usage: wrap CTA anchor + guarantee in a container with class `site-cta`.
   */
   .site-cta {
-    @apply w-full mx-auto text-center hover:opacity-70 tablet:max-w-[460px];
+    @apply w-full mx-auto text-center tablet:max-w-[460px];
     
   }
 
   .site-cta__button {
-    @apply block p-4 rounded-[4px] text-white font-bold leading-[20.8px] bg-black text-center mx-auto;
+    @apply block p-4 rounded-[4px] text-white font-bold leading-[20.8px] bg-black text-center mx-auto hover:opacity-70 transition-opacity;
     @apply tablet:mb-0 tablet:text-[18px];
   }
 
