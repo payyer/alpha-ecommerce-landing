@@ -374,6 +374,24 @@
     @apply bg-[#212121] text-white;
   }
 
+  /* Native select dropdown styled like original */
+  .review-display-select {
+    @apply inline-block text-[#FA8A8A] text-[14px] bg-transparent border-none outline-none cursor-pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 16px;
+    padding-left: 4px;
+    background-image: url("data:image/svg+xml,%3Csvg fill='%23FA8A8A' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0 center;
+    background-size: 16px;
+  }
+
+  .review-display-select:focus {
+    outline: none;
+  }
+
   /* ----------------------------------------
      CONTAINERS
      ---------------------------------------- */
@@ -577,9 +595,7 @@
     }
   }
 
-  .carousel:hover .carousel__track {
-    animation-play-state: paused;
-  }
+
 
   .press_logo {
     height: 20px;

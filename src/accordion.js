@@ -1,11 +1,43 @@
+/**
+ * ============================================================================
+ * ACCORDION COMPONENT
+ * ============================================================================
+ * 
+ * A fully accessible accordion component with the following features:
+ * - ARIA attributes for screen readers
+ * - Smooth height transitions
+ * - Support for mirror panels (multiple panels controlled by one button)
+ * - Dynamic label switching (open/closed states)
+ * - Cancel button support for closing from within panels
+ * 
+ * HTML Structure:
+ * <div class="accordion__item">
+ *   <button class="accordion__button" aria-expanded="false">Title</button>
+ *   <div class="accordion__panel" aria-hidden="true">Content</div>
+ * </div>
+ * 
+ * Optional attributes:
+ * - data-mirror-panel="id1 id2" - IDs of additional panels to toggle
+ * - data-label-open="Close" - Button text when open
+ * - data-label-closed="Open" - Button text when closed
+ * - data-accordion-cancel - Button inside panel to close accordion
+ * 
+ * ============================================================================
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('.accordion__item');
 
+  /**
+   * Get mirror panels that should toggle together with the main panel
+   * @param {HTMLElement} btn - The accordion button element
+   * @returns {HTMLElement[]} Array of mirror panel elements
+   */
   const getMirrorPanels = (btn) => {
     const attr = btn.getAttribute('data-mirror-panel');
     if (!attr) return [];
 
-    // allow: "id-one id-two" or "id-one,id-two"
+    // Allow: "id-one id-two" or "id-one,id-two"
     return attr
       .split(/[\s,]+/)
       .map((id) => id.trim())
@@ -14,10 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
       .filter(Boolean);
   };
 
+  /**
+   * Ensure panel has required base styles for animation
+   * @param {HTMLElement} panel - The panel element
+   */
   const ensurePanelBaseStyles = (panel) => {
     panel.style.overflow = 'hidden';
   };
 
+  /**
+   * Sync button label based on open/closed state
+   * @param {HTMLElement} btn - The button element
+   * @param {boolean} isOpen - Whether the accordion is open
+   */
   const syncButtonLabel = (btn, isOpen) => {
     const openLabel = btn.getAttribute('data-label-open');
     const closedLabel = btn.getAttribute('data-label-closed');
@@ -27,6 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.textContent = next;
   };
 
+  /**
+   * Open an accordion panel with smooth height transition
+   * @param {HTMLElement} panel - The panel to open
+   */
   const openPanel = (panel) => {
     ensurePanelBaseStyles(panel);
     panel.setAttribute('aria-hidden', 'false');
@@ -51,6 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
     panel.addEventListener('transitionend', onTransitionEnd);
   };
 
+  /**
+   * Close an accordion panel with smooth height transition
+   * @param {HTMLElement} panel - The panel to close
+   */
   const closePanel = (panel) => {
     ensurePanelBaseStyles(panel);
     panel.setAttribute('aria-hidden', 'true');
@@ -60,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    // Set explicit height first for transition to work
     panel.style.height = panel.scrollHeight + 'px';
     // Force repaint to make transition work
     // eslint-disable-next-line no-unused-expressions
@@ -67,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     panel.style.height = '0px';
   };
 
+  // Initialize each accordion item
   items.forEach((item, index) => {
     const btn = item.querySelector('.accordion__button');
     const panel = item.querySelector('.accordion__panel');
@@ -76,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mirrorPanels = getMirrorPanels(btn);
     const panelsToToggle = [panel, ...mirrorPanels];
 
-    // Init state (also keeps any initially-open accordions open)
+    // Initialize state (respect initially-open accordions)
     const shouldStartOpen =
       btn.getAttribute('aria-expanded') === 'true' || item.classList.contains('is-open');
 
@@ -100,17 +151,18 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // Toggle accordion on button click
     btn.addEventListener('click', () => {
       const isOpen = item.classList.contains('is-open');
 
       if (isOpen) {
-        // Close (and close mirrored panels if provided)
+        // Close accordion and any mirrored panels
         panelsToToggle.forEach(closePanel);
         item.classList.remove('is-open');
         btn.setAttribute('aria-expanded', 'false');
         syncButtonLabel(btn, false);
       } else {
-        // Open (and open mirrored panels if provided)
+        // Open accordion and any mirrored panels
         panelsToToggle.forEach(openPanel);
         item.classList.add('is-open');
         btn.setAttribute('aria-expanded', 'true');
@@ -119,10 +171,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Allow internal "Cancel review" buttons to close their accordion item
+  // Handle cancel buttons inside accordion panels
   const cancelBtns = document.querySelectorAll('[data-accordion-cancel]');
   cancelBtns.forEach((cb) => {
     cb.addEventListener('click', (e) => {
+      // Check for specific trigger selector
       const triggerSelector = cb.getAttribute('data-accordion-trigger');
       if (triggerSelector) {
         const trigger = document.querySelector(triggerSelector);
@@ -132,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
+      // Otherwise, close the closest accordion
       const item = cb.closest('.accordion__item');
       if (!item) return;
       const toggle = item.querySelector('.accordion__button');

@@ -1,10 +1,32 @@
+/**
+ * ============================================================================
+ * MODAL COMPONENT
+ * ============================================================================
+ * 
+ * Handles all modal/popup functionality on the page.
+ * Features:
+ * - Nutritional Information modal (supplement facts)
+ * - Clinicians Choice modal (product endorsement details)
+ * - Clinicians Choice banner close functionality
+ * - Smooth fade-in/scale animations
+ * - Click outside to close
+ * - Body scroll lock when modal is open
+ * 
+ * ============================================================================
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Nutritional Information Modal
+  // =========================================================================
+  // NUTRITIONAL INFORMATION MODAL
+  // =========================================================================
   const modal = document.getElementById("js-modal");
   const modalBtn = document.getElementById("js-modal-btn");
   const closeBtn = document.getElementById("js-close-btn");
   const modalContent = modal?.querySelector(".relative");
 
+  /**
+   * Open the nutritional information modal
+   */
   const openModal = () => {
     modal.classList.remove("invisible", "opacity-0");
     modal.classList.add("flex", "opacity-100", "animate-fade-in");
@@ -13,6 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("overflow-hidden");
   };
 
+  /**
+   * Close the nutritional information modal with animation
+   */
   const closeModal = () => {
     modal.classList.remove("opacity-100");
     modal.classList.add("opacity-0");
@@ -28,10 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   };
 
+  // Bind event listeners for nutritional modal
   if (modalBtn && modal && closeBtn) {
     modalBtn.onclick = openModal;
     closeBtn.onclick = closeModal;
 
+    // Close on backdrop click
     modal.onclick = (e) => {
       if (e.target === modal) {
         closeModal();
@@ -39,7 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // Clinicians Choice Modal
+  // =========================================================================
+  // CLINICIANS CHOICE MODAL
+  // =========================================================================
   const cliniciansModal = document.getElementById("clinicians-choice-modal");
   const cliniciansModalBtn = document.getElementById(
     "js-open-clinicians-choice-modal"
@@ -49,6 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   const cliniciansModalContent = cliniciansModal?.querySelector(".relative");
 
+  /**
+   * Open the clinicians choice modal
+   */
   const openCliniciansModal = () => {
     cliniciansModal.classList.remove("invisible", "opacity-0");
     cliniciansModal.classList.add("flex", "opacity-100", "animate-fade-in");
@@ -57,6 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("overflow-hidden");
   };
 
+  /**
+   * Close the clinicians choice modal with animation
+   */
   const closeCliniciansModal = () => {
     cliniciansModal.classList.remove("opacity-100");
     cliniciansModal.classList.add("opacity-0");
@@ -72,10 +107,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   };
 
+  // Bind event listeners for clinicians modal
   if (cliniciansModalBtn && cliniciansModal && cliniciansModalCloseBtn) {
     cliniciansModalBtn.onclick = openCliniciansModal;
     cliniciansModalCloseBtn.onclick = closeCliniciansModal;
 
+    // Close on backdrop click
     cliniciansModal.onclick = (e) => {
       if (e.target === cliniciansModal) {
         closeCliniciansModal();
@@ -83,12 +120,15 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // Clinicians Choice Banner Close
+  // =========================================================================
+  // CLINICIANS CHOICE BANNER
+  // =========================================================================
   const cliniciansChoiceEl = document.getElementById("clinicians-choice");
   const cliniciansChoiceCloseEl = document.getElementById(
     "js-close-clinicians-choice"
   );
 
+  // Close banner on X click
   if (cliniciansChoiceCloseEl && cliniciansChoiceEl) {
     cliniciansChoiceCloseEl.addEventListener("click", () => {
       cliniciansChoiceEl.style.display = "none";
