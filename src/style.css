@@ -466,6 +466,17 @@
     @apply rotate-45;
   }
 
+  /* Modifier: when you want the icon to rotate 180deg instead of 45deg
+     Add class `accordion__icon--full-rotate` to the icon element in markup.
+     This rule is placed after the 45deg rule so it overrides it when present. */
+  .accordion__icon--full-rotate {
+    @apply transition-transform duration-300 transform;
+  }
+
+  .accordion__item.is-open .accordion__icon--full-rotate {
+    @apply rotate-180;
+  }
+
   .accordion__panel {
     @apply transition-[height] duration-300 ease-in-out;
     height: 0;
